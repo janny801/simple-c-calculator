@@ -15,15 +15,19 @@ This is a simple command-line calculator written in C. It takes two integers and
 
 1. **Compile the Program**  
    Run the following command in your terminal:  
-   bash```
-   gcc -o calculator main.c  
-    ```
+
+   ```bash
+   gcc -o calculator main.c
+   ```
+
    This will generate an executable named `calculator`.
 
 2. **Run the Program**  
-    bash```
-   ./calculator  
-    ```
+
+   ```bash
+   ./calculator
+   ```
+
 ## Usage
 
 When prompted, enter an expression in the format:  
