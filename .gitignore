@@ -1,7 +1,14 @@
-# Ignore compiled executables
-main
-main.exe
-main.out
+# Ignore all compiled executable files (files without extensions)
+*
+
+# Do not ignore folders
+!*/
+
+# Do NOT ignore source files, headers, and important files
+!*.c
+!*.h
+!*.md
+!*.gitignore
 
 # Ignore VS Code settings folder
 .vscode/
