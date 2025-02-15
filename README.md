@@ -65,3 +65,8 @@ the result of 10 + 5 is: 15.00
 
 
 
+## Future Improvements
+
+- Support for floating-point numbers.
+- Allow input from a file instead of only manual input.
+- Add support for parentheses to control order of operations.
