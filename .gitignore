@@ -2,3 +2,6 @@
 main
 main.exe
 main.out
+
+# Ignore VS Code settings folder
+.vscode/
