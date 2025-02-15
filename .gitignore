@@ -1,0 +1,4 @@
+# Ignore compiled executables
+main
+main.exe
+main.out
