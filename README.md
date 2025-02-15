@@ -37,3 +37,17 @@ the result of 10 + 5 is: 15.00
 
 - If division by zero is attempted, the program prints an error message and exits.
 - If an unsupported operator is entered, the program prints an error message and exits.
+
+
+## Example Inputs and Outputs
+
+| Input  | Output                            |
+| ------ | --------------------------------- |
+| 10 + 5 | the result of 10 + 5 is: 15.00    |
+| 20 - 4 | the result of 20 - 4 is: 16.00    |
+| 6 * 3  | the result of 6 * 3 is: 18.00     |
+| 10 / 2 | the result of 10 / 2 is: 5.00     |
+| 5 / 0  | error: division by 0              |
+
+
+
