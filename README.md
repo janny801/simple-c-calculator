@@ -11,6 +11,14 @@ This is a simple command-line calculator written in C. It takes two integers and
 - Ignores extra whitespaces in the input, ensuring only the required values (operator and operands) are processed correctly.
 
 
+## Requirements
+
+- A C compiler (`gcc` recommended)
+- A terminal or command-line interface
+- Works on Linux, macOS, and Windows (via WSL or MinGW)
+
+
+
 ## Compilation and Execution
 
 1. **Compile the Program**  
