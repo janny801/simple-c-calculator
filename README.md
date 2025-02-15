@@ -5,10 +5,10 @@ This is a simple command-line calculator written in C. It takes two integers and
 
 ## Features
 
-- Supports addition (+), subtraction (-), multiplication (* or x), and division (/).
+- Supports addition (`+`), subtraction (`-`), multiplication (`*` or `x`), and division (`/`).
 - Handles division by zero with an error message.
 - Uses pointers for passing values to functions.
-
+- Ignores extra whitespaces in the input, ensuring only the required values (operator and operands) are processed correctly.
 
 
 ## Compilation and Execution
