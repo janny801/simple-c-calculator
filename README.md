@@ -1,6 +1,6 @@
 # Simple Calculator in C
 
-This is a simple command-line calculator written in C. It takes two integers and an operator as input and performs the corresponding arithmetic operation.
+This is a simple command-line calculator written in C. It takes two integers as input and performs the corresponding arithmetic operation. The program outputs floating-point values but currently does not support operations with floating-point inputs. Plans to add support for floating-point operations in the future.
 
 
 ## Features
@@ -71,3 +71,4 @@ the result of 10 + 5 is: 15.00
   - Currently, the program only accepts integer inputs but outputs floating-point values.
 - Allow input from a file instead of only manual input.
 - Add support for parentheses to control order of operations.
+- Include additional operations such as modulus (`%`), exponentiation (`^`), and bitwise operators.
