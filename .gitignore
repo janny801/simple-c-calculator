@@ -12,3 +12,6 @@
 
 # Ignore VS Code settings folder
 .vscode/
+
+# Ignore macOS debug symbol folders
+*.dSYM/
