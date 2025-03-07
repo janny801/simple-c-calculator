@@ -61,8 +61,12 @@ int main()
         return 1;
     }
 
-    // Debugging output to check values
+    /* Debugging output to check values
+    
     printf("Debug: num1 = %.2f, operator = '%c' (ASCII: %d), num2 = %.2f\n", num1, operator, operator, num2);
+    */
+
+
 
     double result = operate(&num1, &num2, operator); // Passed operator by value
 
