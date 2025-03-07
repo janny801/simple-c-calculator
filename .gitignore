@@ -13,5 +13,5 @@
 # Ignore VS Code settings folder
 .vscode/
 
-# Ignore macOS debug symbol folders
+# Ignore macOS debug symbol folders generated when compiling with the '-g' flag
 *.dSYM/
