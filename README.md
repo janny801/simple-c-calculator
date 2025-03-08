@@ -9,6 +9,7 @@ This is a simple command-line calculator written in C. It takes two numbers (int
 - Handles division by zero with an error message.
 - Uses pointers for passing values to functions.
 - Ignores extra whitespaces in the input, ensuring only the required values (operator and operands) are processed correctly.
+- Supports both integer and floating-point inputs.
 
 
 ## Requirements
