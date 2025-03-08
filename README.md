@@ -48,6 +48,13 @@ enter the expression: 10 + 5
 Output:  
 the result of 10 + 5 is: 15.00  
 
+Another example: 
+enter the expression: 7 * 2.5
+
+Output: 
+the result of 7 * 2.5 is: 17.50
+
+
 ## Error Handling
 
 - If division by zero is attempted, the program prints an error message and exits.
