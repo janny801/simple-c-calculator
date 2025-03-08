@@ -1,6 +1,6 @@
 # Simple Calculator in C
 
-This is a simple command-line calculator written in C. It takes two integers as input and performs the corresponding arithmetic operation. The program outputs floating-point values but currently does not support operations with floating-point inputs. Plans to add support for floating-point operations in the future.
+This is a simple command-line calculator written in C. It takes two numbers (integers and/or floating-point) as input and performs the corresponding arithmetic operation. The program outputs floating-point values.
 
 
 ## Features
