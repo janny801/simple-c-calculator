@@ -10,6 +10,40 @@ int add(int *a , int *b)
 
 */
 
+// Function to approximate ln(x) using a Taylor series expansion
+double ln_approx(double x) {
+    if (x <= 0) {
+        printf("Error: Logarithm of a non-positive number is undefined.\n");
+        exit(EXIT_FAILURE);
+    }
+    
+    // Using the identity: ln(x) = 2 * [(x - 1) / (x + 1) + (1/3) * ((x - 1) / (x + 1))^3 + (1/5) * ((x - 1) / (x + 1))^5 + ...]
+    double y = (x - 1) / (x + 1);
+    double y2 = y * y; // (x - 1) / (x + 1) squared
+    double result = 0.0;
+    double term = y;
+    
+    for (int i = 1; i <= 9; i += 2) { // Take 5 terms for accuracy
+        result += term / i;
+        term *= y2;
+    }
+    
+    return 2 * result;
+}
+
+// Function to approximate e^x using a Taylor series expansion
+double exp_approx(double x) {
+    double result = 1.0;
+    double term = 1.0;
+
+    for (int i = 1; i <= 12; i++) { // More terms for higher accuracy
+        term *= x / i;
+        result += term;
+    }
+    
+    return result;
+}
+
 // Function to calculate exponentiation without using math.h
 double power(double base, double exp) 
 {
@@ -34,37 +68,15 @@ double power(double base, double exp)
         result *= base;
     }
 
-    // Handle fractional exponent approximation using simple Taylor expansion for e^(x ln(base))
-    
-    // Extract the decimal (fractional) part of the exponent
-    double fractional_part = positive_exp - (int)positive_exp; 
-    // Example: If positive_exp = 2.1, then:
-    // (int)positive_exp = 2
-    // fractional_part = 2.1 - 2 = 0.1
+    // Handle fractional exponentiation
+    double fractional_part = positive_exp - (int)positive_exp;
+    if (fractional_part > 0) {
+        double ln_base = ln_approx(base); // Use the improved logarithm function
+        double frac_result = exp_approx(fractional_part * ln_base); // Compute e^(fractional_part * ln(base))
+        result *= frac_result;
+    }
 
-    // Approximate ln(base) using a simple first-order approximation: ln(base) ≈ (base - 1)
-    double term = fractional_part * (base - 1);
-    // Example: For 2.1^2.1:
-    // base - 1 = 2.1 - 1 = 1.1
-    // term = 0.1 * 1.1 = 0.11
-
-    // Approximate e^(fractional_part * ln(base)) using a Taylor series expansion:
-    // e^x ≈ 1 + x + (x^2)/2! + (x^3)/3!
-    double frac_result = 1.0 + term / 1 + (term * term) / 2 + (term * term * term) / 6;
-    // Example:
-    // e^0.11 ≈ 1 + (0.11) + (0.11^2)/2 + (0.11^3)/6
-    // ≈ 1 + 0.11 + 0.00605 + 0.000201
-    // ≈ 1.116251 (approximation for e^0.11)
-
-    // Multiply integer exponentiation result by the fractional exponent approximation
-    result *= frac_result;
-    // Example for 2.1^2.1:
-    // Integer part: 2.1^2 = 2.1 * 2.1 = 4.41
-    // Fractional correction: 4.41 * 1.116251 ≈ 4.74963 (which is correct!)
-
-    // If the exponent was negative, take the reciprocal of the result
     return (is_negative) ? (1.0 / result) : result;
-
 }
 
 
@@ -130,6 +142,6 @@ int main()
 
     double result = operate(&num1, &num2, operator); // Passed operator by value
 
-    printf("the result of %.2f %c %.2f is: %.2f\n", num1, operator, num2, result);  
+    printf("the result of %.2f %c %.2f is: %.5f\n", num1, operator, num2, result);  
 
 }
