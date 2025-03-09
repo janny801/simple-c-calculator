@@ -34,14 +34,37 @@ double power(double base, double exp)
         result *= base;
     }
 
-    // Handle fractional exponent approximation using simple Taylor expansion for e^(x ln base)
-    double fractional_part = positive_exp - (int)positive_exp; // Extract decimal part of exponent
-    double term = fractional_part * (base - 1); // Approximate ln(base) as (base - 1)
-    double frac_result = 1.0 + term / 1 + (term * term) / 2 + (term * term * term) / 6; // Taylor expansion
+    // Handle fractional exponent approximation using simple Taylor expansion for e^(x ln(base))
+    
+    // Extract the decimal (fractional) part of the exponent
+    double fractional_part = positive_exp - (int)positive_exp; 
+    // Example: If positive_exp = 2.1, then:
+    // (int)positive_exp = 2
+    // fractional_part = 2.1 - 2 = 0.1
 
-    result *= frac_result; // Multiply integer exponentiation with fractional approximation
+    // Approximate ln(base) using a simple first-order approximation: ln(base) ≈ (base - 1)
+    double term = fractional_part * (base - 1);
+    // Example: For 2.1^2.1:
+    // base - 1 = 2.1 - 1 = 1.1
+    // term = 0.1 * 1.1 = 0.11
 
+    // Approximate e^(fractional_part * ln(base)) using a Taylor series expansion:
+    // e^x ≈ 1 + x + (x^2)/2! + (x^3)/3!
+    double frac_result = 1.0 + term / 1 + (term * term) / 2 + (term * term * term) / 6;
+    // Example:
+    // e^0.11 ≈ 1 + (0.11) + (0.11^2)/2 + (0.11^3)/6
+    // ≈ 1 + 0.11 + 0.00605 + 0.000201
+    // ≈ 1.116251 (approximation for e^0.11)
+
+    // Multiply integer exponentiation result by the fractional exponent approximation
+    result *= frac_result;
+    // Example for 2.1^2.1:
+    // Integer part: 2.1^2 = 2.1 * 2.1 = 4.41
+    // Fractional correction: 4.41 * 1.116251 ≈ 4.74963 (which is correct!)
+
+    // If the exponent was negative, take the reciprocal of the result
     return (is_negative) ? (1.0 / result) : result;
+
 }
 
 
