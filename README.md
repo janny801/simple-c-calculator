@@ -73,9 +73,11 @@ the result of 7 * 2.5 is: 17.50
 | 5 / 0   | error: division by 0              |
 
 
-
 ## Future Improvements
 
 - Allow input from a file instead of only manual input.
-- Add support for parentheses to control order of operations.
-- Include additional operations such as modulus (`%`), exponentiation (`^`), and bitwise operators.
+- Add support for parentheses to control the order of operations.
+- Include additional operations such as modulus (`%`) and bitwise operators.
+- Implement support for square root (`√`), logarithm (`log` and `ln`), and trigonometric functions (`sin`, `cos`, `tan`).
+- Enable support for scientific notation and complex numbers.
+- Improve error handling for invalid inputs and undefined operations.
