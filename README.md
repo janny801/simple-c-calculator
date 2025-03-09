@@ -46,13 +46,19 @@ For example:
 enter the expression: 10 + 5  
 
 Output:  
-the result of 10 + 5 is: 15.00  
+the result of 10 + 5 is: 15.00000  
 
-Another example: 
-enter the expression: 7 * 2.5
+Another example:  
+enter the expression: 7 * 2.5  
 
-Output: 
-the result of 7 * 2.5 is: 17.50
+Output:  
+the result of 7 * 2.5 is: 17.50000  
+
+Exponentiation example:  
+enter the expression: 2.1 ^ 2.1  
+
+Output:  
+the result of 2.10 ^ 2.10 is: 4.74964  
 
 
 ## Error Handling
