@@ -11,6 +11,29 @@ int add(int *a , int *b)
 */
 
 // Function to approximate ln(x) using a Taylor series expansion
+// 
+// Why do I need this function?
+// ----------------------------------
+// When dealing with exponentiation `base^exp` where `exp` is a floating-point number, 
+// I cannot simply multiply `base` by itself `exp` times, as I do for integer exponents. 
+// Instead, I must use the mathematical identity:
+//
+//      base^exp = e^(exp * ln(base))
+//
+// This allows me to break down exponentiation into two steps:
+//   1. Compute `ln(base)`, the natural logarithm of the base.
+//   2. Compute `e^(exp * ln(base))`, which I approximate using a Taylor series.
+//
+// Why not just use `ln(x) = x - 1`? (which is what I did previously) 
+// ----------------------------------
+// In an earlier approach, I used a rough approximation: `ln(x) ≈ x - 1`, 
+// but this is only accurate for values close to 1. For better precision, 
+// I now use a **Taylor series expansion** for `ln(x)`.
+//
+// This series converges quickly and provides better accuracy, 
+// ensuring that floating-point exponents are computed correctly.
+// ----------------------------------
+
 double ln_approx(double x) {
     if (x <= 0) {
         printf("Error: Logarithm of a non-positive number is undefined.\n");
