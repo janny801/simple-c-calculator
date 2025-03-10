@@ -30,8 +30,11 @@ This is a simple command-line calculator written in C. It takes two numbers (int
    ```
 
    This will generate an executable named `calculator`.
-   
+
    This command uses the GNU Compiler Collection (gcc) to compile main.c into an executable named calculator. The -o calculator option specifies the output filename.
+   
+   - **Why is this step necessary?**  
+  C and C++ programs are written in human-readable source code, but computers cannot execute this code directly. The compiler translates it into machine code (binary) that the operating system can run.
 
 
 
