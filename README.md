@@ -44,6 +44,9 @@ This is a simple command-line calculator written in C. It takes two numbers (int
    ./calculator
    ```
 
+This executes the compiled program. The `./` prefix tells the system to run the `calculator` executable in the current directory.
+
+
 ## Usage
 
 When prompted, enter an expression in the format:  
