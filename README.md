@@ -30,6 +30,10 @@ This is a simple command-line calculator written in C. It takes two numbers (int
    ```
 
    This will generate an executable named `calculator`.
+   
+   This command uses the GNU Compiler Collection (gcc) to compile main.c into an executable named calculator. The -o calculator option specifies the output filename.
+
+
 
 2. **Run the Program**  
 
