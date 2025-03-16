@@ -22,7 +22,6 @@ This is a simple command-line calculator written in C. It takes two numbers (int
 - Works on Linux, macOS, and Windows (via WSL or MinGW)
 
 
-
 ## Compilation and Execution
 
 1. **Compile the Program**  
