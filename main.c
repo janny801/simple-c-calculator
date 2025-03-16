@@ -102,6 +102,30 @@ double power(double base, double exp)
     return (is_negative) ? (1.0 / result) : result;
 }
 
+// Function to compute modulus without using math.h
+double modulus(double a, double b) {
+    if (b == 0) {
+        printf("error: modulus by 0 is undefined\n");
+        exit(EXIT_FAILURE);
+    }
+    
+    // If both numbers are integers, use simple modulus logic
+    if ((int)a == a && (int)b == b) {
+        return (int)a % (int)b;
+    }
+
+    // Floating-point modulus using iterative subtraction
+    double result = a;
+    while (result >= b) {
+        result -= b;
+    }
+    while (result < 0) {  // Handle negative numbers correctly
+        result += b;
+    }
+    
+    return result;
+}
+
 
 double operate(double *a, double *b, char op) // Changed char *op to char op
 {
@@ -130,6 +154,8 @@ double operate(double *a, double *b, char op) // Changed char *op to char op
             }
         case '^': // Exponentiation case
             return power(*a, *b); 
+        case '%': // Modulus case
+            return modulus(*a, *b);
         default: 
             printf("you used %c which is not supported\n", op); // Removed * since op is now a value
             exit(EXIT_FAILURE); 
