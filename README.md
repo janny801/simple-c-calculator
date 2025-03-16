@@ -7,7 +7,6 @@ This is a simple command-line calculator written in C. It takes two numbers (int
 
 - Supports addition (`+`), subtraction (`-`), multiplication (`*` or `x`), and division (`/`).
 - Supports exponentiation (`^`) for both integer and floating-point values.
-- Supports modulus (`%`) for both integer and floating-point values without using `math.h`.
 - Handles division by zero with an error message.
 - Uses pointers for passing values to functions.
 - Ignores extra whitespaces in the input, ensuring only the required values (operator and operands) are processed correctly.
