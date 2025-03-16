@@ -96,7 +96,7 @@ the result of 2.10 ^ 2.10 is: 4.74964
 
 - Allow input from a file instead of only manual input.
 - Add support for parentheses to control the order of operations.
-- Include additional operations such as modulus (`%`) and bitwise operators.
 - Implement support for square root (`√`), logarithm (`log` and `ln`), and trigonometric functions (`sin`, `cos`, `tan`).
 - Enable support for scientific notation and complex numbers.
 - Improve error handling for invalid inputs and undefined operations.
+- Add support for user-defined functions, allowing users to store and reuse expressions.
