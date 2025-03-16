@@ -70,6 +70,12 @@ enter the expression: 2.1 ^ 2.1
 Output:  
 the result of 2.10 ^ 2.10 is: 4.74964  
 
+Modulus example:  
+enter the expression: 3 % 10  
+
+Output:  
+the result of 3 % 10 is: 3.00000  
+
 
 ## Error Handling
 
