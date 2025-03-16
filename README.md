@@ -6,10 +6,14 @@ This is a simple command-line calculator written in C. It takes two numbers (int
 ## Features
 
 - Supports addition (`+`), subtraction (`-`), multiplication (`*` or `x`), and division (`/`).
+- Supports exponentiation (`^`) for both integer and floating-point values.
+- Supports modulus (`%`) for both integer and floating-point values without using `math.h`.
 - Handles division by zero with an error message.
 - Uses pointers for passing values to functions.
 - Ignores extra whitespaces in the input, ensuring only the required values (operator and operands) are processed correctly.
-- Supports both integer and floating-point inputs.
+- Implements natural logarithm (`ln(x)`) and exponentiation (`e^x`) approximations using a Taylor series.
+- Provides graceful error handling for invalid inputs and undefined operations.
+- Ensures consistent formatted output with a fixed decimal precision.
 
 
 ## Requirements
