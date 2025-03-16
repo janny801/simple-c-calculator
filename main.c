@@ -102,29 +102,47 @@ double power(double base, double exp)
     return (is_negative) ? (1.0 / result) : result;
 }
 
-// Function to compute modulus without using math.h
+/* 
+   Function to compute the modulus operation without using the math.h library.
+   This function supports both integer and floating-point modulus calculations.
+*/
 double modulus(double a, double b) {
+    // Check if the divisor (b) is zero.
+    // The modulus operation is undefined when dividing by zero, 
+    // so we print an error message and terminate the program.
     if (b == 0) {
         printf("error: modulus by 0 is undefined\n");
         exit(EXIT_FAILURE);
     }
     
-    // If both numbers are integers, use simple modulus logic
+    // If both numbers are integers, perform the modulus operation 
+    // using the standard integer modulus operator `%`.
     if ((int)a == a && (int)b == b) {
         return (int)a % (int)b;
     }
 
-    // Floating-point modulus using iterative subtraction
+    // For floating-point numbers, we approximate the modulus using iterative subtraction.
+    // This simulates the behavior of the modulus operation for real numbers.
+
+    // Store the initial value of 'a' in 'result'
     double result = a;
+
+    // Subtract 'b' from 'result' repeatedly until it falls within the correct range.
+    // This ensures that the remainder is within [0, b) for positive numbers.
     while (result >= b) {
         result -= b;
     }
-    while (result < 0) {  // Handle negative numbers correctly
+
+    // If 'result' is negative, adjust it by adding 'b' to bring it into the correct range.
+    // This is necessary to correctly handle negative values.
+    while (result < 0) {
         result += b;
     }
     
+    // Return the computed remainder
     return result;
 }
+
 
 
 double operate(double *a, double *b, char op) // Changed char *op to char op
