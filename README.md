@@ -97,17 +97,19 @@ The calculator now supports expressions with proper operator precedence (PEMDAS)
 
 ## Example Inputs and Outputs
 
-| Input     | Output                                       |
-| --------- | -------------------------------------------- |
-| 10 + 5    | the result of 10 + 5 is: 15.00000           |
-| 20 - 4    | the result of 20 - 4 is: 16.00000           |
-| 6 * 3     | the result of 6 * 3 is: 18.00000            |
-| 7 * 2.5   | the result of 7 * 2.5 is: 17.50000          |
-| 10 / 2    | the result of 10 / 2 is: 5.00000            |
-| 5 / 0     | error: division by 0                        |
-| 2 ^ 3     | the result of 2 ^ 3 is: 8.00000             |
-| 2.1 ^ 2.1 | the result of 2.10 ^ 2.10 is: 4.74964       |
-| 3 % 10    | the result of 3 % 10 is: 3.00000            |
+| Input         | Output                                       |
+| ------------- | -------------------------------------------- |
+| 10 + 5        | the result of 10 + 5 is: 15.00000             |
+| 20 - 4        | the result of 20 - 4 is: 16.00000             |
+| 6 * 3         | the result of 6 * 3 is: 18.00000              |
+| 7 * 2.5       | the result of 7 * 2.5 is: 17.50000            |
+| 10 / 2        | the result of 10 / 2 is: 5.00000              |
+| 5 / 0         | error: division by 0                         |
+| 2 ^ 3         | the result of 2 ^ 3 is: 8.00000               |
+| 2.1 ^ 2.1     | the result of 2.10 ^ 2.10 is: 4.74964         |
+| 3 % 10        | the result of 3 % 10 is: 3.00000              |
+| 2 + 3 * 4     | the result of 2 + 3 * 4 is: 14.00000          |
+
 
 ## Future Improvements
 
