@@ -1,6 +1,6 @@
 # Simple Calculator in C
 
-This is a simple command-line calculator written in C. It takes two numbers (integers and/or floating-point) as input and performs the corresponding arithmetic operation. The program outputs floating-point values.
+This is a simple command-line calculator written in C. It accepts a complete arithmetic expression that can include multiple numbers (integers and/or floating-point), various arithmetic operators, and parentheses. The calculator supports addition, subtraction, multiplication, division, exponentiation, and modulus. It applies standard operator precedence (PEMDAS) to evaluate the expression and outputs the result as a floating-point value.
 
 
 ## Features
