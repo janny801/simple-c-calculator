@@ -51,32 +51,42 @@ This is a simple command-line calculator written in C. It takes two numbers (int
 
 ## Usage
 
-When prompted, enter an expression in the format:  
-enter the expression: <num1> <operator> <num2>  
+When prompted, enter a full arithmetic expression containing multiple numbers and operators.  
+The calculator now supports expressions with proper operator precedence (PEMDAS) and parentheses.
 
-For example:  
-enter the expression: 10 + 5  
+**Examples:**
 
-Output:  
-the result of 10 + 5 is: 15.00000  
+- **Simple expression:**  
+  **Input:**  
+  `Enter the expression: 10 + 5`  
+  **Output:**  
+  `Result: 15.00000`
 
-Another example:  
-enter the expression: 7 * 2.5  
+- **Multiple operations:**  
+  **Input:**  
+  `Enter the expression: 7 + 2.5 * 3`  
+  **Output:**  
+  `Result: 14.50000`  
+  *(Multiplication is performed before addition.)*
 
-Output:  
-the result of 7 * 2.5 is: 17.50000  
+- **Using parentheses:**  
+  **Input:**  
+  `Enter the expression: (7 + 2.5) * 3`  
+  **Output:**  
+  `Result: 28.50000`
 
-Exponentiation example:  
-enter the expression: 2.1 ^ 2.1  
+- **Exponentiation:**  
+  **Input:**  
+  `Enter the expression: 2.1 ^ 2.1`  
+  **Output:**  
+  `Result: 4.74964`
 
-Output:  
-the result of 2.10 ^ 2.10 is: 4.74964  
+- **Modulus:**  
+  **Input:**  
+  `Enter the expression: 3 % 10`  
+  **Output:**  
+  `Result: 3.00000`
 
-Modulus example:  
-enter the expression: 3 % 10  
-
-Output:  
-the result of 3 % 10 is: 3.00000  
 
 
 ## Error Handling
