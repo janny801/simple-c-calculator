@@ -189,28 +189,38 @@ double operate(double *a, double *b, char op) // Changed char *op to char op
 int main() {
     double result = 0.0, next_number = 0.0;
     char op;
-    
+    char input[256];  // Buffer for the whole input line
+    char *p;
+    int n;  // Number of characters read by sscanf
+
     printf("Enter the expression (e.g., 2 + 3 * 4 - 5): ");
     
-    // Read the first number
-    if (scanf("%lf", &result) != 1) {
-        printf("Error: Failed to read the first number.\n");
+    // Read the entire line of input
+    if (!fgets(input, sizeof(input), stdin)) {
+        printf("Error: Failed to read input.\n");
         return 1;
     }
     
-    /* 
-       Loop reading operator and number pairs.
-       This implementation processes the expression left-to-right without operator precedence.
-    */
-    while (scanf(" %c", &op) == 1) {
-        // Break if no more numbers are provided (end of input)
-        if (scanf(" %lf", &next_number) != 1) {
+    // Start parsing from the beginning of the input line
+    p = input;
+    
+    // Read the first number
+    if (sscanf(p, " %lf%n", &result, &n) != 1) {
+        printf("Error: Failed to read the first number.\n");
+        return 1;
+    }
+    p += n;
+    
+    // Loop reading operator and number pairs
+    while (sscanf(p, " %c%n", &op, &n) == 1) {
+        p += n;
+        if (sscanf(p, " %lf%n", &next_number, &n) != 1)
             break;
-        }
-        // Evaluate the operation and update the result
+        p += n;
         result = operate(&result, &next_number, op);
     }
     
     printf("Result: %.5f\n", result);
     return 0;
 }
+
