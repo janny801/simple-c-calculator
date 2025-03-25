@@ -1,5 +1,19 @@
 #include <stdio.h>  // Standard input/output library
 #include <stdlib.h> //for exit()
+#include <ctype.h>  // For isspace() and isdigit()
+
+
+
+
+// Global pointer for parsing input
+char *input_ptr;
+
+
+// Function prototypes for the parser functions
+double parseExpression(void);
+double parseTerm(void);
+double parseFactor(void);
+double parsePrimary(void);
 
 
 /*
@@ -182,45 +196,102 @@ double operate(double *a, double *b, char op) // Changed char *op to char op
     }
 }
 
+double parseExpression() {
+    double value = parseTerm();
+    while (*input_ptr == '+' || *input_ptr == '-') {
+        char op = *input_ptr++;
+        double term = parseTerm();
+        if (op == '+')
+            value += term;
+        else
+            value -= term;
+    }
+    return value;
+}
+
+// parseTerm handles multiplication, division, and modulus
+double parseTerm() {
+    double value = parseFactor();
+    while (*input_ptr == '*' || *input_ptr == '/' || *input_ptr == '%') {
+        char op = *input_ptr++;
+        double factor = parseFactor();
+        if (op == '*')
+            value *= factor;
+        else if (op == '/')
+            value /= factor;
+        else if (op == '%')
+            value = (int)value % (int)factor;
+    }
+    return value;
+}
+
+// parseFactor handles exponentiation (right-associative)
+double parseFactor() {
+    double value = parsePrimary();
+    while (*input_ptr == '^') {
+        input_ptr++; // skip '^'
+        double exponent = parseFactor();
+        value = power(value, exponent);
+    }
+    return value;
+}
+
+// parsePrimary handles numbers and parentheses, plus unary +/- 
+double parsePrimary() {
+    while (isspace(*input_ptr)) input_ptr++;
+    
+    double value = 0.0;
+    
+    // Handle parentheses
+    if (*input_ptr == '(') {
+        input_ptr++;  // skip '('
+        value = parseExpression();
+        if (*input_ptr == ')') {
+            input_ptr++;  // skip ')'
+        } else {
+            printf("Error: missing closing parenthesis.\n");
+            exit(EXIT_FAILURE);
+        }
+    }
+    // Handle unary minus
+    else if (*input_ptr == '-') {
+        input_ptr++;
+        value = -parsePrimary();
+    }
+    // Handle unary plus (optional)
+    else if (*input_ptr == '+') {
+        input_ptr++;
+        value = parsePrimary();
+    }
+    // Read a number
+    else {
+        if (sscanf(input_ptr, "%lf", &value) != 1) {
+            printf("Error: invalid number.\n");
+            exit(EXIT_FAILURE);
+        }
+        // Advance pointer past the number
+        while (*input_ptr && (isdigit(*input_ptr) || *input_ptr == '.' ||
+               *input_ptr == 'e' || *input_ptr == 'E' ||
+               *input_ptr == '-' || *input_ptr == '+'))
+            input_ptr++;
+    }
+    return value;
+}
 
 
 
 
 int main() {
-    double result = 0.0, next_number = 0.0;
-    char op;
-    char input[256];  // Buffer for the whole input line
-    char *p;
-    int n;  // Number of characters read by sscanf
-
-    printf("Enter the expression (e.g., 2 + 3 * 4 - 5): ");
+    char input[256];
     
-    // Read the entire line of input
+    printf("Enter the expression: ");
     if (!fgets(input, sizeof(input), stdin)) {
-        printf("Error: Failed to read input.\n");
+        printf("Error reading input.\n");
         return 1;
     }
     
-    // Start parsing from the beginning of the input line
-    p = input;
-    
-    // Read the first number
-    if (sscanf(p, " %lf%n", &result, &n) != 1) {
-        printf("Error: Failed to read the first number.\n");
-        return 1;
-    }
-    p += n;
-    
-    // Loop reading operator and number pairs
-    while (sscanf(p, " %c%n", &op, &n) == 1) {
-        p += n;
-        if (sscanf(p, " %lf%n", &next_number, &n) != 1)
-            break;
-        p += n;
-        result = operate(&result, &next_number, op);
-    }
-    
+    input_ptr = input;
+    double result = parseExpression();
     printf("Result: %.5f\n", result);
     return 0;
 }
-
