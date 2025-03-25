@@ -186,29 +186,31 @@ double operate(double *a, double *b, char op) // Changed char *op to char op
 
 
 
-int main()
-{
-    double num1 = 0.0, num2 = 0.0; // Initialize variables to avoid garbage values
-    char operator = '\0'; // Initialize operator to avoid undefined behavior
-
-    printf("enter the expression: "); 
+int main() {
+    double result = 0.0, next_number = 0.0;
+    char op;
     
-    // Check if scanf reads input correctly
-    if (scanf(" %lf %c %lf", &num1, &operator, &num2) != 3) 
-    {
-        printf("Error: Failed to read input properly.\n");
+    printf("Enter the expression (e.g., 2 + 3 * 4 - 5): ");
+    
+    // Read the first number
+    if (scanf("%lf", &result) != 1) {
+        printf("Error: Failed to read the first number.\n");
         return 1;
     }
-
-    /* Debugging output to check values
     
-    printf("Debug: num1 = %.2f, operator = '%c' (ASCII: %d), num2 = %.2f\n", num1, operator, operator, num2);
+    /* 
+       Loop reading operator and number pairs.
+       This implementation processes the expression left-to-right without operator precedence.
     */
-
-
-
-    double result = operate(&num1, &num2, operator); // Passed operator by value
-
-    printf("the result of %.2f %c %.2f is: %.5f\n", num1, operator, num2, result);  
-
+    while (scanf(" %c", &op) == 1) {
+        // Break if no more numbers are provided (end of input)
+        if (scanf(" %lf", &next_number) != 1) {
+            break;
+        }
+        // Evaluate the operation and update the result
+        result = operate(&result, &next_number, op);
+    }
+    
+    printf("Result: %.5f\n", result);
+    return 0;
 }
