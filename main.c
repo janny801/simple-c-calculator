@@ -311,6 +311,32 @@ double parsePrimary(void) {
 }
 
 
+// Function to check for balanced parentheses
+void checkParenthesesBalance(char *expr) {
+    int count = 0;
+    char *ptr = expr;
+
+    while (*ptr != '\0' && *ptr != '\n') {
+        if (*ptr == '(') {
+            count++;
+        } else if (*ptr == ')') {
+            count--;
+            if (count < 0) {
+                printf("Error: too many closing parentheses.\n");
+                exit(EXIT_FAILURE);
+            }
+        }
+        ptr++;
+    }
+
+    if (count > 0) {
+        printf("Error: missing closing parenthesis.\n");
+        exit(EXIT_FAILURE);
+    }
+}
+
+
+
 
 int main() {
     char input[256];
@@ -326,6 +352,9 @@ int main() {
         printf("Error: empty input is not allowed.\n");
         return 1;
     }
+
+        checkParenthesesBalance(input); //check for balanced parentheses 
+
 
     input_ptr = input;
 
