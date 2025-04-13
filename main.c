@@ -347,6 +347,12 @@ int main() {
         return 1;
     }
 
+    //error check for empty input
+    if (input[0] == '\n') {
+        printf("Error: empty input is not allowed.\n");
+        return 1;
+    }
+
     // Check for empty input
     if (input[0] == '\n') {
         printf("Error: empty input is not allowed.\n");
