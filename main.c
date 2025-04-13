@@ -314,15 +314,34 @@ double parsePrimary(void) {
 
 int main() {
     char input[256];
-    
+
     printf("Enter the expression: ");
     if (!fgets(input, sizeof(input), stdin)) {
         printf("Error reading input.\n");
         return 1;
     }
-    
+
+    // Check for empty input
+    if (input[0] == '\n') {
+        printf("Error: empty input is not allowed.\n");
+        return 1;
+    }
+
     input_ptr = input;
+
     double result = parseExpression();
+
+    // Skip trailing spaces after parsing the expression
+    while (isspace(*input_ptr)) {
+        input_ptr++;
+    }
+
+    // Check for any invalid leftover characters
+    if (*input_ptr != '\0' && *input_ptr != '\n') {
+        printf("Error: invalid character '%c' in input.\n", *input_ptr);
+        exit(EXIT_FAILURE);
+    }
+
     printf("Result: %.5f\n", result);
     return 0;
 }
