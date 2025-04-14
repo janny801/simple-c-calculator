@@ -87,6 +87,13 @@ The calculator now supports expressions with proper operator precedence (PEMDAS)
   **Output:**  
   `Result: 3.00000`
 
+  - **Parentheses error handling:**  
+  **Input:**  
+  `Enter the expression: (2+3))`  
+  **Output:**  
+  `Error: too many closing parentheses.`
+
+
 
 
 ## Error Handling
