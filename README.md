@@ -93,6 +93,12 @@ The calculator now supports expressions with proper operator precedence (PEMDAS)
   **Output:**  
   `Error: too many closing parentheses.`
 
+- **Invalid character error handling:**  
+  **Input:**  
+  `Enter the expression: 6 + 9 $ 50`  
+  **Output:**  
+  `Error: invalid character '$' in input.`
+
 
 
 
