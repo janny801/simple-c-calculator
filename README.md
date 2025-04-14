@@ -106,6 +106,9 @@ The calculator now supports expressions with proper operator precedence (PEMDAS)
 
 - If division by zero is attempted, the program prints an error message and exits.
 - If an unsupported operator is entered, the program prints an error message and exits.
+- If the input contains invalid characters (e.g., `$`), an error message is printed and the program exits.
+- If the input contains mismatched or unbalanced parentheses, an error message is printed and the program exits.
+- If the input is empty or only contains whitespace, an error message is printed and the program exits.
 
 
 ## Example Inputs and Outputs
